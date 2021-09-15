@@ -1,0 +1,23 @@
+first install express using --> npm install express --save
+second install body parser using --> npm install body-parser --save
+install mysql using --> npm install mysql --save
+now install nodemon it uses for run application automatically --> npm install --save-dev nodemon
+now create new file server.js(any name) if you want to create server in diff file.
+now write server connection code in it.
+{
+const express = require('express'); // first require express
+const bodyParser = require('body-parser'); //require body-parser
+const app = express(); // create express app
+const port = process.env.PORT || 5000; // Setup server port
+app.use(bodyParser.urlencoded({ extended: true }))  // parse requests of content-type - application/x-www-form-urlencoded
+app.use(bodyParser.json())  // parse requests of content-type - application/json
+app.get('/', (req, res) => {
+  res.send("Hello World");
+});  // define a root route
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});// listen for requests
+
+}
+
+now make db.config.js(database configuration file) file in config folder in root folder
